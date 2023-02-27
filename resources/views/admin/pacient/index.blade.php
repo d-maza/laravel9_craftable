@@ -6,9 +6,9 @@
 
 <pacient-listing :data="{{ $data->toJson() }}" :url="'{{ url('admin/pacients') }}'" inline-template>
 
-    <div class="row">
-        <div class="col">
-            <div class="card">
+    <div class="row ">
+        <div class=" col">
+            <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
                 <div class="card-header">
                     <i class="fa fa-align-justify"></i> {{ trans('admin.pacient.actions.index') }}
                     <a class="btn btn-primary btn-sm pull-right m-b-0 ml-2" href="{{ url('admin/pacients/export') }}"
