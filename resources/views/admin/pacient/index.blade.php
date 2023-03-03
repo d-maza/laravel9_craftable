@@ -64,15 +64,18 @@
                                     <th is='sortable' :column="'telefon'">{{ trans('admin.pacient.columns.telefon') }}
                                     </th>
                                     <th is='sortable' :column="'curs_escolar'">
-                                        {{ trans('admin.pacient.columns.curs_escolar') }}</th>
+                                        {{ trans('admin.pacient.columns.curs_escolar') }}
+                                    </th>
                                     <th is='sortable' :column="'data_naixement'">
-                                        {{ trans('admin.pacient.columns.data_naixement') }}</th>
+                                        {{ trans('admin.pacient.columns.data_naixement') }}
+                                    </th>
                                     <!-- <th is='sortable' :column="'sex'">{{ trans('admin.pacient.columns.sex') }}</th> -->
                                     <th is='sortable' :column="'esports'">{{ trans('admin.pacient.columns.esports') }}
                                     </th>
                                     <th is='sortable' :column="'fecha'">{{ trans('admin.pacient.columns.fecha') }}</th>
                                     <th is='sortable' :column="'referidor'">
-                                        {{ trans('admin.pacient.columns.referidor') }}</th>
+                                        {{ trans('admin.pacient.columns.referidor') }}
+                                    </th>
 
                                     <th></th>
                                 </tr>
@@ -111,9 +114,12 @@
                                         </label>
                                     </td>
 
-                                    <!-- <td>@{{ item.id }}</td> -->
-                                    <td>@{{ item.nom }}</td>
-                                    <td>@{{ item.cognoms }}</td>
+                                    <!-- <td><a :href="'/admin/fulls/' + item.id + '/edit'">@{{ item.id }}
+                                        </a>  </td> -->
+                                    <td><a :href="'/admin/fulls/' + item.id + '/edit'">@{{ item.nom }}
+                                        </a> </td>
+                                        <td><a :href="'/admin/fulls/' + item.id + '/edit'">@{{ item.cognoms  }}
+                                        </a> </td>
                                     <td>@{{ item.telefon }}</td>
                                     <td>@{{ item.curs_escolar }}</td>
                                     <td>@{{ item.data_naixement | date }}</td>
@@ -123,13 +129,14 @@
                                     <td>@{{ item.referidor }}</td>
 
                                     <td>
-                                        <div class="row no-gutters">
+                                        <div class=" row no-gutters">
                                             <div class="col mt-1">
                                                 <a class="btn btn-sm btn-spinner btn-info"
                                                     :href="item.resource_url + '/edit'"
                                                     title="{{ trans('brackets/admin-ui::admin.btn.edit') }}"
                                                     role="button"><i class="fa fa-edit"></i></a>
                                             </div>
+
                                             <form class="col mt-1" @submit.prevent="deleteItem(item.resource_url)">
                                                 <button type="submit" class="btn btn-sm btn-danger"
                                                     title="{{ trans('brackets/admin-ui::admin.btn.delete') }}"><i
@@ -137,6 +144,7 @@
                                             </form>
                                         </div>
                                     </td>
+
                                 </tr>
                             </tbody>
                         </table>

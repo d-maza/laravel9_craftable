@@ -48,3 +48,13 @@ $factory->define(App\Models\Pacient::class, static function (Faker\Generator $fa
         
     ];
 });
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Full::class, static function (Faker\Generator $faker) {
+    return [
+        'pacient_id' => $faker->randomNumber(5),
+        'data_examen' => $faker->dateTime,
+        'data_examen_mod' => $faker->dateTime,
+        
+        
+    ];
+});

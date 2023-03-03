@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Database\Schema\IndexDefinition;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,20 +45,6 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
     });
 });
 
-/* Auto-generated admin routes */
-Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
-        Route::prefix('pacients')->name('pacients/')->group(static function() {
-            Route::get('/',                                             'PacientController@index')->name('index');
-            Route::get('/create',                                       'PacientController@create')->name('create');
-            Route::post('/',                                            'PacientController@store')->name('store');
-            Route::get('/{pacient}/edit',                               'PacientController@edit')->name('edit');
-            Route::post('/bulk-destroy',                                'PacientController@bulkDestroy')->name('bulk-destroy');
-            Route::post('/{pacient}',                                   'PacientController@update')->name('update');
-            Route::delete('/{pacient}',                                 'PacientController@destroy')->name('destroy');
-        });
-    });
-});
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
@@ -71,6 +58,22 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
             Route::post('/{pacient}',                                   'PacientController@update')->name('update');
             Route::delete('/{pacient}',                                 'PacientController@destroy')->name('destroy');
             Route::get('/export',                                       'PacientController@export')->name('export');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('fulls')->name('fulls/')->group(static function() {
+            Route::get('/',                                             'FullController@index')->name('index');
+            Route::get('/create',                                       'FullController@create')->name('create');
+            Route::post('/',                                            'FullController@store')->name('store');
+            Route::get('/{full}/edit',                                  'FullController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'FullController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{full}',                                      'FullController@update')->name('update');
+            Route::delete('/{full}',                                    'FullController@destroy')->name('destroy');
+            Route::get('/export',                                       'FullController@export')->name('export');
         });
     });
 });

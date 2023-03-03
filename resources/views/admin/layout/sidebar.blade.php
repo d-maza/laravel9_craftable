@@ -4,7 +4,8 @@
             <li class="nav-title">{{ trans('brackets/admin-ui::admin.sidebar.content') }} </li>
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/pacients') }}"><i
                         class="nav-icon icon-user"></i>Llistat de {{ trans('admin.pacient.title').'s' }} </a></li>
-            {{-- Do not delete me :) I'm used for auto-generation menu items --}}
+            <li class="nav-item"><a class="nav-link" href="{{ url('admin/fulls') }}"><i class="nav-icon icon-diamond"></i> {{ trans('admin.full.title') }}</a></li>
+           {{-- Do not delete me :) I'm used for auto-generation menu items --}}
 
             <li class="nav-title">{{ trans('brackets/admin-ui::admin.sidebar.settings') }}</li>
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/admin-users') }}"><i

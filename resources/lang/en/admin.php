@@ -79,5 +79,24 @@ return [
         ],
     ],
 
+    'full' => [
+        'title' => 'Full',
+
+        'actions' => [
+            'index' => 'Full',
+            'create' => 'New Full',
+            'edit' => 'Edit :name',
+            'export' => 'Export',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'pacient_id' => 'Pacient',
+            'data_examen' => 'Data examen',
+            'data_examen_mod' => 'Data examen mod',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];
