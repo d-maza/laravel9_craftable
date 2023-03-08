@@ -10,7 +10,7 @@ use App\Http\Requests\Admin\Pacient\IndexPacient;
 use App\Http\Requests\Admin\Pacient\StorePacient;
 use App\Http\Requests\Admin\Pacient\UpdatePacient;
 use App\Models\Pacient;
-use Brackets\AdminListing\Facades\AdminListing;
+use Brackets\AdminListing\Facades\AdminListing; 
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Routing\ResponseFactory;
