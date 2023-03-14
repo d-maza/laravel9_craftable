@@ -9,6 +9,7 @@ use App\Http\Requests\Admin\Pacient\DestroyPacient;
 use App\Http\Requests\Admin\Pacient\IndexPacient;
 use App\Http\Requests\Admin\Pacient\StorePacient;
 use App\Http\Requests\Admin\Pacient\UpdatePacient;
+use App\Models\Full;
 use App\Models\Pacient;
 use Brackets\AdminListing\Facades\AdminListing; 
 use Exception;
@@ -23,6 +24,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Illuminate\View\View;
 
+
 class PacientController extends Controller
 {
 
@@ -34,7 +36,7 @@ class PacientController extends Controller
      */
     public function index(IndexPacient $request)
     {
-        // create and AdminListing instance for a specific model and
+        // Crear y administrar instancia de lista de administración para un modelo específico y
         $data = AdminListing::create(Pacient::class)->processRequestAndGet(
             // pass the request with params
             $request,
@@ -79,14 +81,19 @@ class PacientController extends Controller
      */
     public function store(StorePacient $request)
     {
-        // Sanitize input
+
+        
         $sanitized = $request->getSanitized();
-
+    
         // Store the Pacient
-        $pacient = Pacient::create($sanitized);
-
+    
+       $pacient = Pacient::create($sanitized);
+       $full = Full::create($sanitized);
+ 
+         
+        
         if ($request->ajax()) {
-            return ['redirect' => url('admin/pacients'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
+            return ['redirect' => url('admin/pacients'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')] ;
         }
 
         return redirect('admin/pacients');
@@ -164,7 +171,7 @@ class PacientController extends Controller
             return response(['message' => trans('brackets/admin-ui::admin.operation.succeeded')]);
         }
 
-        return redirect()->back();
+        return redirect();
     }
 
     /**

@@ -102,7 +102,7 @@ class AdminUsersController extends Controller
         // Store the AdminUser
         $adminUser = AdminUser::create($sanitized);
 
-        // But we do have a roles, so we need to attach the roles to the adminUser
+        // pero tenemos un roles, por lo que necesitamos adjuntar los roles al administrador
         $adminUser->roles()->sync(collect($request->input('roles', []))->map->id->toArray());
 
         if ($request->ajax()) {

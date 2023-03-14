@@ -48,7 +48,8 @@ class StorePacient extends FormRequest
     {
         $sanitized = $this->validated();
 
-        //Add your code for manipulation with request data here
+
+       // Agregue su código para la manipulación con datos de solicitud aquí
 
         return $sanitized;
     }
